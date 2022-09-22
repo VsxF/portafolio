@@ -5,7 +5,7 @@ import Post from "./post";
 import { Column, InfoRow, PostsContainer, PostsTitle, SamplePicture } from "./style";
 
 const Posts:FC = () => {
-    const [t, i18] = useTranslation('global');
+    const [t] = useTranslation('global');
 
     return (
         <>

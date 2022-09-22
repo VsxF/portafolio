@@ -16,7 +16,7 @@ const CartPage: FC = () => {
     const cartState = useSelector((state: RootState) => state.cart);
     const [total, setTotal] = useState(0);
     const [showCheckOut, setShowCO] = useState(false);
-    const [t, i18] = useTranslation('global');
+    const [t] = useTranslation('global');
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -27,7 +27,7 @@ const CartPage: FC = () => {
             aux += item.price.value * (item.qnt ? item.qnt : 1)
         }
         setTotal(aux)
-    }, [cartState.totalQnt])
+    }, [cartState])
 
     return (
         cartState.totalQnt === 0 ?

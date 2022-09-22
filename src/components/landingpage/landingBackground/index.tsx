@@ -36,7 +36,7 @@ const LandingBackground: FC<{ children?: ReactNode, noWait?: boolean, loadPic?: 
         img.onload = () => setSourceLoaded([true, sourceLoaded[1], sourceLoaded[2]])
         img2.onload = () => setSourceLoaded([sourceLoaded[0], true, sourceLoaded[2]])
         img3.onload = () => setSourceLoaded([sourceLoaded[0], sourceLoaded[1], true])
-    }, [Vac, VacNoSky, loadPic])
+    }, [Vac, VacNoSky, loadPic])  // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <>

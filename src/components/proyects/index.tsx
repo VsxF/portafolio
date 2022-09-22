@@ -8,7 +8,7 @@ import { ProyectFiled, ProyectsContainer, ProyectsFieldContainer, ShowComponent 
 
 const Proyects: FC = () => {
     const [selected, setSelected] = useState(0);
-    const [t, i18n] = useTranslation('global');
+    const [t] = useTranslation('global');
 
     return (
         <>

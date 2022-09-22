@@ -2,7 +2,6 @@ import { configureStore, Store } from '@reduxjs/toolkit';
 import ThemeReducer from './themeSlice';
 import ItemsReducer from './getItemsSlice'
 import CartReducer from './cartSlice';
-import { useDispatch } from 'react-redux';
 
 export const store = configureStore({
     reducer: {

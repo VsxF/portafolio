@@ -9,7 +9,7 @@ import { CommentContainer, CommentBar } from "./style";
 
 const Comment: FC<{ comment: string, reply: number }> = ({ comment, reply }) => {
     const [showReply, setShowReply] = useState(false);
-    const [t, i18] = useTranslation('global');
+    const [t] = useTranslation('global');
 
     return (
         <CommentContainer reply={reply}>

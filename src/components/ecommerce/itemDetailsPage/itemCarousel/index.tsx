@@ -7,7 +7,7 @@ import { ArrowContainer, Example, ItemPicture, Picture } from "./style";
 const ItemCarousel: FC<{ picture: string, alt: string }> = ({ picture, alt }) => {
     const [actualIndex, setActual] = useState(0);
     const [nextState, setNext] = useState(false);
-    const [t, i18] = useTranslation('global');
+    const [t] = useTranslation('global');
     const pictures = [
         //picture of the item
         picture,

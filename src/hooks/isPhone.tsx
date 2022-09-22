@@ -9,7 +9,7 @@ const IsPhone = (action?: Function) => {
             setIsPhone(true);
             if (action) action();
         }
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return isPhone;
 }

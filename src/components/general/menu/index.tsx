@@ -8,7 +8,7 @@ import useOutsideClick from "../../../hooks/useOutSideClick";
 
 const Menu: FC = () => {
     const [menuSt, setMenuState] = useState(false)
-    const { t, i18n } = useTranslation('global');
+    const [t] = useTranslation('global');
     const outSideClick = useOutsideClick(() => setMenuState(false))
 
     return (
@@ -38,7 +38,7 @@ const Menu: FC = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/contact">
+                        <Link to="/contact" state={'ctcmenu'}>
                             {t('menu.contact')}
                         </Link>
                     </li>

@@ -8,7 +8,7 @@ import { ProfileSocial, ProfileFrontPage, ProfilePicture, ProfileHeaderInfo, Pro
 
 const ProfileHeader: FC = () => {
     const [showSocial, setShowSocial] = useState(false);
-    const [t, i18] = useTranslation('global');
+    const [t] = useTranslation('global');
 
     return (
         <ProfileHeaderDiv>

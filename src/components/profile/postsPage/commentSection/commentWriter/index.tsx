@@ -1,6 +1,5 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import IsPhone from "../../../../../hooks/isPhone";
 import IconContainer from "../../../../general/icons/iconContainer";
 import { Arrow } from "../../../../general/icons/icons";
 import { SampleProfilePicture } from "../../../sampelData";
@@ -9,14 +8,8 @@ import { CommentInput, CommentWriterContainer } from "./style";
 
 const CommentWriter: FC<{ addComment: Function }> = ({ addComment }) => {
     const [ value, setValue ] = useState<string>("");
-    const [t, i18] = useTranslation('global');
+    const [t] = useTranslation('global');
     const refInput = useRef<HTMLInputElement>(null);
-    const isPhone = IsPhone();
-
-    useEffect(() => {
-        // if (refInput.current && !isPhone) refInput.current.focus()
-        // return () => {}
-    })
 
     const addCommentt = () => {
         addComment(value);

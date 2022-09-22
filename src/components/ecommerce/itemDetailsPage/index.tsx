@@ -1,10 +1,8 @@
-import { FC, useEffect, useMemo, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { IItem } from "../../../backend/api";
-import IsFirstUpdate from "../../../hooks/IsFirstUpdate";
 import { add2Cart } from "../../../redux/cartSlice";
 import { RootState } from "../../../redux/store";
 import Button from "../../general/button/style";
@@ -24,7 +22,7 @@ const ItemDetailsPage: FC = () => {
     const [qnt, setQnt] = useState(1);
     const lastLocation = useLocation().state as string;
     const navigate = useNavigate();
-    const [t, i18] = useTranslation('global');
+    const [t] = useTranslation('global');
 
     useEffect(() => {
         if (item === undefined && itemState.loading === 'succeeded') {
@@ -34,9 +32,8 @@ const ItemDetailsPage: FC = () => {
 
     useEffect(() => {
         document.title = "NuK - " + item?.title;
-
         return () => { document.title = "NuK - sublimexf" }
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <>

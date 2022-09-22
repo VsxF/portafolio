@@ -1,24 +1,23 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { CSharp, Css, Cv, Golang, Html, Java, JavaScript, Mail, NodeJS, Php, Reactjs, Space, Sql, TypeScript, VB } from "../general/icons/icons";
 import { ContactContainer, IconNtext, Column, ColumnList, SayContainer, Copied } from "./style";
 
-const Contact: FC<{ scrollTo: boolean, setScrollTo: Function }> = ({ scrollTo, setScrollTo }) => {
+const Contact: FC = () => {
     const [copied, setCopied] = useState(false)
     const ref = useRef<null | HTMLDivElement>(null);
-    const [t, i18] = useTranslation('global');
+    const [t] = useTranslation('global');
     const rootChildren: any = (document.getElementById('root') as HTMLElement).children
+    const location = useLocation();
 
     useEffect(() => {
-        if (scrollTo) {
-            ref.current?.scrollIntoView();
-            setScrollTo(false);
-        }
-
+        if (location.state === "ctcmenu") 
+            ref.current?.scrollIntoView()
+        
         fixHeaderStyle();
         return defaultHeaderStyle; // unmount -> clean header changes
-    }, [])
+    }, [location.state]) // eslint-disable-line react-hooks/exhaustive-deps
 
     // fix heather issues
     const fixHeaderStyle = () => {
@@ -36,7 +35,7 @@ const Contact: FC<{ scrollTo: boolean, setScrollTo: Function }> = ({ scrollTo, s
         rootChildren[3].children[1].style.removeProperty('top')
     }
 
-    const handleEmail = () => {
+    const handleEmailClick = () => {
         setCopied(true);
         navigator.clipboard.writeText("herberthbustamante@gmail.com");
         setTimeout(() => setCopied(false), 2500)
@@ -50,12 +49,11 @@ const Contact: FC<{ scrollTo: boolean, setScrollTo: Function }> = ({ scrollTo, s
 
                 <Space width="100%" height="80px" />
 
-
                 <SayContainer>
                     <h3>{t("contact.say")}</h3>
 
                     <div>
-                        <IconNtext pointer onClick={handleEmail} >
+                        <IconNtext pointer onClick={handleEmailClick} >
                             <Copied show={copied}>{t("contact.copied")}</Copied>
                             <Mail />
                             herberthbustamante<wbr />@gmail.com
@@ -67,17 +65,12 @@ const Contact: FC<{ scrollTo: boolean, setScrollTo: Function }> = ({ scrollTo, s
                                 target="_blank"
                                 download="Herberth Bustamante WebDeveloper"
                             >
-
                                 <Cv />
                                 {t("contact.view")}
                             </Link>
                         </IconNtext>
                     </div>
                 </SayContainer>
-
-
-
-
 
             </Column>
 
@@ -165,7 +158,6 @@ const Contact: FC<{ scrollTo: boolean, setScrollTo: Function }> = ({ scrollTo, s
                     </li>
                 </ul>
             </ColumnList>
-
         </ContactContainer >
     )
 }

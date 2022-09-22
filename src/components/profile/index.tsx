@@ -9,7 +9,7 @@ import { ProfileContainer, ContentContainer, TabsContainer, TabItem } from "./st
 
 const Profile: FC = () => {
     const location = useLocation().pathname.split('/')[3];
-    const [t, i18] = useTranslation('global');
+    const [t] = useTranslation('global');
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {

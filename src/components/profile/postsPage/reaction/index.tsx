@@ -1,6 +1,5 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import IsPhone from "../../../../hooks/isPhone";
 import useOutsideClick from "../../../../hooks/useOutSideClick";
 import { Space } from "../../../general/icons/icons";
 import { Exs, Joy, Like, Love, Minus } from "../../../general/icons/reactions";
@@ -20,7 +19,7 @@ const Reaction: FC<IReaction> = ({ showComments, reacts, reply, show }) => {
     const [reactionIndex, setReactionIndex] = useState(0); // Wich reaction was clicked, to show
     const [firstClick, setFirstClick] = useState(false); // detects first click, if not, open and close reactions at same time 
     const refReactions = useOutsideClick(() => setOpenReactions(firstClick)); // close on outSide click
-    const [t, i18] = useTranslation('global');
+    const [t] = useTranslation('global');
 
     // normal: onClick everywhere -> close Reactions ...
     // useEffect: onFirstClick, open, then onClick everywhere close

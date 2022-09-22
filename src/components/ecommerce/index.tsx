@@ -1,10 +1,9 @@
 import { FC, useEffect, useRef } from "react";
 import { Container } from "./style";
 import StoreHeader from "./storeHeader";
-import { useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../redux/store";
+import { AppDispatch } from "../../redux/store";
 import { useDispatch } from "react-redux";
-import { changeLang, FetchItems } from "../../redux/getItemsSlice";
+import { FetchItems } from "../../redux/getItemsSlice";
 import { Route, Routes, useLocation } from "react-router-dom";
 import ItemsPage from "./ItemsPage";
 import ItemDetailsPage from "./itemDetailsPage";
@@ -19,15 +18,13 @@ const Ecommerce: FC = () => {
 
     useEffect(() => {
         document.title = "NuK - sublimexf";
-
         return () => { document.title = "sublimexf" }
-    }, [])
+    }, []) 
 
     useEffect(() => {
         const promise = dispatch(FetchItems(i18.language))
-
         return () => promise.abort();
-    }, [t('ecommerce.title')])
+    }, [t('ecommerce.title')])  // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
         if (ref.current) ref.current.scrollIntoView();

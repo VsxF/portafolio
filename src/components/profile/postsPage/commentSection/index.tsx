@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import styled from "styled-components";
 import { SampleComment } from "../../sampelData";
-import { Column, toggleColors } from "../style";
+import { toggleColors } from "../style";
 import Comment from "./comment";
 import CommentWriter from "./commentWriter";
 

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Field from "./field";
 
 const Information: FC = () => {
-  const [t, i18] = useTranslation('global');
+  const [t] = useTranslation('global');
   const informatinoArray: [string, [string, string]] = t('postPage.information', { returnObjects: true });
 
   return (

@@ -1,6 +1,6 @@
-import { FC, useEffect } from "react"
+import { FC } from "react"
 import { Star } from "../../../general/icons/icons"
-import { Container, Rating, StarRow } from "./style"
+import { Container, StarRow } from "./style"
 
 export const Stars:FC<{rating: number}> = ({ rating }) => {
     return (

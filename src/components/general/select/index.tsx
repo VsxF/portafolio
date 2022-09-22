@@ -1,7 +1,7 @@
-import { FC, ReactNode, RefObject, useEffect, useRef, useState } from "react";
+import { FC, ReactNode, useState } from "react";
 import useOutsideClick from "../../../hooks/useOutSideClick";
 import { Arrow, Space } from "../icons/icons";
-import { Options, OptionsTriangle, SelectContainer } from "./style";
+import { Options, SelectContainer } from "./style";
 
 interface Props {
     children: ReactNode,

@@ -1,21 +1,17 @@
-import i18next from "i18next";
-import { FC, MutableRefObject, useEffect, useRef } from "react";
+import { FC, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { IItem } from "../../../backend/api";
 import { RootState } from "../../../redux/store";
 import Cart from "../../general/icons/cartIcon";
 import IconContainer, { IconPadding } from "../../general/icons/iconContainer";
 import { ProfileIcon, Space, StoreIcon } from "../../general/icons/icons";
-import Select from "../../general/select";
 import { HalfContainer, SHeader, StoreTag } from "./style";
 
 const StoreHeader: FC = () => {
     const cartState = useSelector((state: RootState) => state.cart)
     const ref = useRef<null | HTMLDivElement>(null);
     const location = useLocation();
-    const navigate = useNavigate();
 
     useEffect(() => {
         ref.current?.scrollIntoView();

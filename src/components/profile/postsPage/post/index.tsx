@@ -16,7 +16,7 @@ interface IProps {
 const Post: FC<IProps> = ({ profilePicture, name, date, content, picture, reacts }) => {
     const [showMore, setShowMore] = useState(false);
     const [showComments, setShowComments] = useState(false);
-    const [t, i18] = useTranslation('global');
+    const [t] = useTranslation('global');
 
     return (
         <>

@@ -4,7 +4,7 @@ import { InfoContainer, Plus, SectionDetails, SectionTitle, } from "./style";
 
 const ItemInfo:FC = () => {
     const [ open, setOpen ] = useState(-1);
-    const [t, i18] = useTranslation('global');
+    const [t] = useTranslation('global');
     const infoSections = [
         t('ecommerce.detailsPage.description'),
         t('ecommerce.detailsPage.info'),

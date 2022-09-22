@@ -1,5 +1,4 @@
-import { FC, RefObject, useEffect, useRef, useState } from "react";
-import useOutsideClick from "../../../../hooks/useOutSideClick";
+import { FC, useEffect, useState } from "react";
 import { FieldContainer, FieldInput, FieldLabel } from "./style";
 
 const Field: FC<{ field: string, data: string }> = ({ field, data }) => {

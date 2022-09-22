@@ -1,13 +1,5 @@
-import styled, { CSSProperties } from "styled-components";
+import styled from "styled-components";
 
-const IconContainer2 = styled.div`
-    display: flex;
-    justify-content: center;   
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: green;
-`
 interface IProps {
     color?: string,
     width?: string,

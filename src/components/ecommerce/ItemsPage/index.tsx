@@ -9,7 +9,7 @@ import ItemLoading from "./ItemLoading";
 const ItemsPage: FC = () => {
     const itemsState = useSelector((state: RootState) => state.items.items)
     const loadingArray = Array.from(Array(8).keys());
-    const [t, i18] = useTranslation('global');
+    const [t] = useTranslation('global');
     
     return (
         <>

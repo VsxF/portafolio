@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { toggleColors } from "../style"
 
 export const ReactionSectionContainer = styled.div<{ line?: boolean }>`

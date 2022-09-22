@@ -9,30 +9,22 @@ import { Space } from "../general/icons/icons";
 
 const LandingPage: FC = () => {
     const [animation, setAnimation] = useState(false);
-    const [scrollTo, setScrollTo] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
-    const [t, i18] = useTranslation('global');
+    const [t] = useTranslation('global');
     const refScrollDiv = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        // Navigate to contact section
-        if (location.pathname === '/contact') {
-            setAnimation(false);
-            setScrollTo(true);
-        }
-    }, [])
 
     useEffect(() => {
         // Navigate to index section, when it comes from the contact Section
         // (Contact section) -> Menu -> (Index section)
+        console.log("simon")
         if (location.state === "menu" && refScrollDiv.current) {
             refScrollDiv.current.scrollTop = 0;
             location.state = "a";
             setAnimation(false);
             setTimeout(() => setAnimation(true), 1);
         }
-    }, [location.state])
+    }, [location.state]) // eslint-disable-line react-hooks/exhaustive-deps
 
     // onScoll show / dir to contact section
     const handleScroll = (e: any) => {
@@ -43,22 +35,27 @@ const LandingPage: FC = () => {
         }
     }
 
-    const youtubexd = () => {
+    // const youtubexd = () => {
 
         // const btn = document.createElement("button");
-        // btn.style = "background: skyblue; width: calc(100% - 120px); margin: 60px; margin-bottom: 0px";
-        // btn.textContent = "click :D";
+        // btn.style = "background: white; width: calc(100% - 120px); font-size: 2em; height: 3em; border-radius: 15px; margin: 60px; margin-bottom: 0px; border: none; cursor: pointer;";
+        // btn.textContent = "Hide Header";
         // btn.onclick = () => {
         //     const header = document.getElementById('masthead-container');
-        //     if (header.style.display === "flex") { header.style = "display: none" }
-        //     else { header.style = "display: flex" }
-        //     console.log("clicked")
+        //     if (header.style.display === "none") { 
+        //         header.style = "display: flex" 
+        //         btn.textContent = "Hide Header" 
+        //     }
+        //     else { 
+        //         header.style = "display: none" 
+        //         btn.textContent = "Show Header"
+        //     }
         // };
-        // const sec = document.getElementById('below');
-        // sec.insertBefore(btn, sec.firstChild);
+        // const below = document.getElementById('below');
+        // below.insertBefore(btn, below.firstChild);
 
-    }
-
+    // }
+    
     return (
         <LandingBackground loadPic={Me}>
             <LandingContainer >
@@ -80,10 +77,7 @@ const LandingPage: FC = () => {
 
                     <Routes>
                         <Route path="contact" element={
-                            <Contact
-                                scrollTo={scrollTo}
-                                setScrollTo={setScrollTo}
-                            />
+                            <Contact />
                         } />
                     </Routes>
                 </AuxLandingScroll>

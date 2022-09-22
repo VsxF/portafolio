@@ -8,7 +8,6 @@ import Ecommerce from "./ecommerce";
 import Footer from "./footer";
 import Profile from "./profile";
 import Proyects from "./proyects";
-import Contact from "./contact";
 
 const Components: FC = () => {
 
@@ -35,6 +34,7 @@ const Container = styled.div`
     width: 100%;
     position: relative; 
     min-height: calc(100vh - 140px);
+    z-index: 1;
 `
 
 export default Components;

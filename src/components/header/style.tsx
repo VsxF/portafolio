@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import Sun from '../general/icons/headerIcons/sun.svg';
 import Moon from '../general/icons/headerIcons/moon.svg';
 import Clouds from '../general/icons/headerIcons/clouds.svg';
@@ -20,7 +20,7 @@ export const Item = styled.div<{ width?: string }>`
     flex-align: row;
     width: 80px;
     height: 35px;
-
+    z-index: 10;
 `
 
 export const Switch = styled.div`
@@ -62,7 +62,7 @@ export const Slide = styled.label`
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    transition: 0.3s;
+    transition: 0.1s;
     color: yellow;
     background: url(${Moon});
     ${slideBack};
@@ -89,7 +89,7 @@ export const CheckBox = styled.input`
       width: 35px;
       height: 35px;
       margin-left: 42px;
-      transition: 0.3s;
+      transition: 0.1s;
       background: url(${Sun});
       ${slideBack};
     }
