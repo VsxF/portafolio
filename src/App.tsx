@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC } from "react";
+import { BrowserRouter } from "react-router-dom";
+import Components from "./components";
+//redux
+import { RootState } from "./redux/store";
+import { useSelector } from "react-redux";
+//lang
+import i18next from "i18next";
+import { I18nextProvider } from "react-i18next";
+import global_en from "./translation/en/global.json";
+import global_es from "./translation/es/global.json";
+//theme
+import { ThemeProvider } from 'styled-components';
+import GlobalStyle from './Themes/global.d'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const lang: string = localStorage.getItem("lang") as string;
+
+i18next.init({
+  interpolation: { escapeValue: false },
+  lng: lang ? lang : "es",
+  resources: {
+    en: { global: global_en },
+    es: { global: global_es }
+  }
+})
+
+const App:FC = () => {
+  const theme = useSelector((state: RootState) => state.theme.theme )
+
+  return ( 
+      <I18nextProvider i18n={ i18next } >
+        <ThemeProvider theme={ theme }>
+        <GlobalStyle />
+          <BrowserRouter>
+            <Components />
+          </BrowserRouter>
+        </ThemeProvider>
+      </I18nextProvider>
+  )
 }
 
 export default App;

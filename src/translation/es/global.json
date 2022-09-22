@@ -1,0 +1,85 @@
+{
+    "landing": {
+        "greeting": "Hola, soy"
+    },
+    "contact": {
+        "title": "Contáctame" ,
+        "description": "Siempre he tenido un hambre insaciable por aprender nuevas cosas. Desde que empece a programar se volvio mi pasatiempo y algo que disfruto mucho hacer. Soy bastante autodidacta y me gusta resolver problemas.",
+        "say": "Dime Hola!",
+        "view": "Ver Curriculum",
+        "copied": "Copiado",
+        "knowledge": "Conocimientos en programación"
+    },
+    "menu": {
+        "home": "Inicio",
+        "proyects": "Proyectos",
+        "contact": "Contacto"
+    },
+    "proyects" : {
+        "ecommerce": "Tienda en linea",
+        "profile": "Perfil",
+        "carousel": "Carousel",
+        "table": "Tabla"
+    },
+    "ecommerce": {
+        "title" : "Productos",
+        "detailsPage": {
+            "qnt": "Cant.",
+            "addButton": "Añadir al carrito",
+            "description": "Descripción",
+            "info": "Información del Producto",
+            "dimensions": "Dimesiones",
+            "features": "Características",
+            "example": "Ejemplo"
+        },
+        "cartPage": {
+            "items": "Productos",
+            "quantity": "Cantidad",
+            "deliver_to": "Entregar en",
+            "address": "Esta dirección es de, ejemplo, Union S. dsad 15275",
+            "payment_method": "Método de pago",
+            "checkout": "Finalizar Pedido",
+            "order_did": "Gracias por tu compra !",
+            "order_fail": [
+                "Oops! Aun no hay productos aqui.",
+                "Añade productos a tu carrito para hacer una compra :)"
+            ]
+        }
+    },
+    "postPage": {
+        "tabs": {
+            "posts": "Publicaciones",
+            "information": "Información",
+            "pictures": "Imágenes"
+        },
+        "post" : {
+            "commentField": "Comentar",
+            "show_more": "mostrar más",
+            "show_less": "mostrar menos",
+            "write_comment": "Escribe un comentario",
+            "postDates" : [
+                "Martes 12 de julio de 2022, 10:57 PM", 
+                "Martes 14 de junio de 2022, 05:56 PM",
+                "Martes 22 de marzo de 2022, 07:42 AM",
+                "Miercoles 16 de febrero de 2022, 07:30 AM",
+                "Jueves 6 de enero de 2022, 06:30 PM"
+            ]
+        },
+        "information": {
+            "fill_it": ["Lléname", ""],
+            "name": ["Nombre", "Carol C Byers"],
+            "gender": ["Género", "Femenino"],
+            "birthday": ["Cumpleaños", "06/02/1999"],
+            "mobile": ["Celular", "757-338-4919"],
+            "email": ["Correo", "garett_boeh7@hotmail.com"],
+            "sign": ["Signo", "Geminis"],
+            "civil_status": ["Estatus Civil", "Casada, con hijos"],
+            "employ_status": ["Trabajo", "Trabajo de medio tiempo"],
+            "occupation": ["Ocupación", "Manager"],
+            "status": ["Estado", "Si te vas a burlar de la gente, no les des material para un comeback"],
+            "color": ["Color", "Lavanda"],
+            "music": ["Música", "Blues"]
+        }
+    }
+     
+}
