@@ -37,6 +37,7 @@ const CartItem: FC<{ item: IItem }> = ({ item }) => {
                         width="20px"
                         padding="0px"
                         onClick={() => changeQnt()}
+                        noBorder
                     >
                         <Cross less />
                     </IconContainer>
@@ -50,6 +51,7 @@ const CartItem: FC<{ item: IItem }> = ({ item }) => {
                         width="20px"
                         padding="0px"
                         onClick={() => changeQnt(true)}
+                        noBorder
                     >
                         <Cross />
                     </IconContainer>

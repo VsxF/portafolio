@@ -33,15 +33,20 @@ const endsRevert = (top: boolean) => keyframes`
         transform: translateY(0%);
     }
 `
-export const EndsBar = styled.g<{ open: boolean, firstUpdate: boolean, top: boolean }>`
+
+interface IProps { 
+    open: "open" | "close" | "unanimated", 
+    one?: boolean
+}
+
+export const EndsBar = styled.g<IProps>`
     * { fill: ${props => props.theme.color.font}; }    
 
-    ${props => props.firstUpdate &&
-        props.open ? css`
-            animation: ${endsAnimation(props.top)} 0.3s 1 0s forwards;
-        `: css`
-            animation: ${endsRevert(props.top)} 0.3s 1 0s forwards;
-        `
+    ${props => props.open === "open" ? css`
+            animation: ${endsAnimation(props.one as boolean)} 0.3s 1 0s forwards;
+        `: props.open === "close" ? css`
+            animation: ${endsRevert(props.one as boolean)} 0.3s 1 0s forwards;
+        ` : ``
     }
 `
 const crossAnimation = (mid2: boolean) => keyframes`
@@ -65,14 +70,13 @@ const crossRevert = (mid2: boolean) => keyframes`
         transform: rotate(0deg);
     }
 `
-export const MidsBar = styled.g<{ open: boolean, firstUpdate: boolean, mid2: boolean }>`
+export const MidsBar = styled.g<IProps>`
     * { fill: ${props => props.theme.color.font}; }      
 
-    ${props => props.firstUpdate &&
-    props.open ? css`
-        animation: ${crossAnimation(props.mid2)} 0.3s 1 0.3s forwards;
-    `: css`
-        animation: ${crossRevert(props.mid2)} 0.3s 1 0s forwards;
-    `
+    ${props => props.open === "open" ? css`
+        animation: ${crossAnimation(props.one as boolean)} 0.3s 1 0.3s forwards;
+    `: props.open === "close" ? css`
+        animation: ${crossRevert(props.one as boolean)} 0.3s 1 0s forwards;
+    `: ``
     }
 `

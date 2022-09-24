@@ -13,7 +13,7 @@ const Footer: FC = () => {
                 <FooterLine />
                 <Link to="/proyects">{t('menu.proyects')}</Link>
                 <FooterLine />
-                <Link to="/Contact" state={'ctcmenu'}>{t('menu.contact')}</Link>
+                <Link to="/contact" state={'ctcmenu'}>{t('menu.contact')}</Link>
             </FooterMenu>
             © 2022 sublimexf
         </FooterContainer>

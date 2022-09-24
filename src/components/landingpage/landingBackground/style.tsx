@@ -45,7 +45,6 @@ export const Background = styled.div<IProps>`
         height: ${props => props.hypotenuse}px;
         filter: url(#stars);
         animation: ${starsAnimation} 150s infinite linear;
-        
     }
     
     &::after {

@@ -33,7 +33,7 @@ const ItemDetailsPage: FC = () => {
     useEffect(() => {
         document.title = "NuK - " + item?.title;
         return () => { document.title = "NuK - sublimexf" }
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+    }, [item]) 
 
     return (
         <>

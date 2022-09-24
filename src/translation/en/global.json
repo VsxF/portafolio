@@ -4,11 +4,11 @@
     },
     "contact": {
         "title": "Contact Me" ,
-        "description": "Siempre he tenido un hambre insaciable por aprender nuevas cosas. Desde que empece a programar se volvio mi pasatiempo y algo que disfruto mucho hacer. Soy bastante autodidacta y me gusta resolver problemas.",
+        "description": "I've always had the insatiable hunger to learn new things. Since I started to code, it became my hobby and something I enjoy doing. I'm really good at self-teaching and solving problems.",
         "say": "Say Hi!",
         "view": "View Resume",
         "copied": "Copied",
-        "knowledge": "Conocimientos en programación"
+        "knowledge": "Programming Skills"
     },
     "menu": {
         "home": "Home",

@@ -6,7 +6,7 @@ import { LandingContainer } from "../style";
 
 const LandingBackground: FC<{ children?: ReactNode, noWait?: boolean, loadPic?: string }> = ({ children, noWait, loadPic }) => {
     const [hypotenuse, setHypotenuse] = useState([0, 0, 0])
-    const [sourceLoaded, setSourceLoaded] = useState([false, false, false]);
+    const [sourceLoaded, setSourceLoaded] = useState([false, false, false]);    
 
     //return hypotenuse, x, y
     //set with: and height: hypotenuse
@@ -33,16 +33,16 @@ const LandingBackground: FC<{ children?: ReactNode, noWait?: boolean, loadPic?: 
         img.src = Vac;
         img2.src = VacNoSky;
         img3.src = loadPic || "";
-        img.onload = () => setSourceLoaded([true, sourceLoaded[1], sourceLoaded[2]])
-        img2.onload = () => setSourceLoaded([sourceLoaded[0], true, sourceLoaded[2]])
-        img3.onload = () => setSourceLoaded([sourceLoaded[0], sourceLoaded[1], true])
-    }, [Vac, VacNoSky, loadPic])  // eslint-disable-line react-hooks/exhaustive-deps
+        img.onload = () => setSourceLoaded( sl => [true, sl[1], sl[2]]);
+        img2.onload = () => setSourceLoaded( sl => [sl[0], true, sl[2]]);
+        img3.onload = () => setSourceLoaded( sl => [sl[0], sl[1], true]);
+    }) 
 
     return (
         <>
             {noWait && children}
 
-            {!sourceLoaded[0] && !sourceLoaded[1] && !sourceLoaded[2] ?
+            {(!sourceLoaded[0] || !sourceLoaded[1] || !sourceLoaded[2]) ?
                 <>
                     <LandingContainer>
                         <Loading />

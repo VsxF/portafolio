@@ -42,6 +42,7 @@ const Reaction: FC<IReaction> = ({ showComments, reacts, reply, show }) => {
             if (reactions === reacts + 1) {
                 setReactions(reacts) 
                 setOpenReactions(false)
+                setReactionIndex(0)
             }
         } else {
             setOpenReactions(firstClick)

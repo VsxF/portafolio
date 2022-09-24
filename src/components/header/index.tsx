@@ -1,7 +1,8 @@
 import i18next from "i18next";
-import { FC, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { RootState } from "../../redux/store";
 import { toggleTheme } from "../../redux/themeSlice";
 import {  SpainFlag, UsaFlag } from "../general/icons/icons";
@@ -9,9 +10,14 @@ import Select from "../general/select";
 import { CheckBox, Container, Item, Slide, Switch } from "./style";
 
 const Header:FC = () => {
+    const [lang, setLang] = useState(i18next.language);
     const theme = useSelector((state: RootState) => state.theme.theme)
     const dispatch = useDispatch();
-    const [lang, setLang] = useState(i18next.language);
+    const location = useLocation();
+
+    useEffect(() => { // default lang is spanish if link has "/en", change to english
+        if (location.pathname === "/en") toggleLanguage("en") 
+    }, [])  // eslint-disable-line react-hooks/exhaustive-deps
 
     const toggleLanguage = (language: string) => {
         setLang(language)

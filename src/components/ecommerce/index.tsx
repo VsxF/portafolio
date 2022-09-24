@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 
 const Ecommerce: FC = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const [t, i18] = useTranslation('global');
+    const {i18n} = useTranslation('global');
     const location = useLocation().pathname;
     const ref = useRef<HTMLDivElement>(null);
 
@@ -22,9 +22,9 @@ const Ecommerce: FC = () => {
     }, []) 
 
     useEffect(() => {
-        const promise = dispatch(FetchItems(i18.language))
+        const promise = dispatch(FetchItems(i18n.language))
         return () => promise.abort();
-    }, [t('ecommerce.title')])  // eslint-disable-line react-hooks/exhaustive-deps
+    }, [i18n.language, dispatch])  
 
     useEffect(() => {
         if (ref.current) ref.current.scrollIntoView();

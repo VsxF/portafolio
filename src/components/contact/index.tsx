@@ -1,39 +1,42 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CSharp, Css, Cv, Golang, Html, Java, JavaScript, Mail, NodeJS, Php, Reactjs, Space, Sql, TypeScript, VB } from "../general/icons/icons";
 import { ContactContainer, IconNtext, Column, ColumnList, SayContainer, Copied } from "./style";
 
-const Contact: FC = () => {
-    const [copied, setCopied] = useState(false)
-    const ref = useRef<null | HTMLDivElement>(null);
-    const [t] = useTranslation('global');
-    const rootChildren: any = (document.getElementById('root') as HTMLElement).children
+const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animationOff }) => {
+    const [copied, setCopied] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
     const location = useLocation();
-
-    useEffect(() => {
-        if (location.state === "ctcmenu") 
-            ref.current?.scrollIntoView()
-        
-        fixHeaderStyle();
-        return defaultHeaderStyle; // unmount -> clean header changes
-    }, [location.state]) // eslint-disable-line react-hooks/exhaustive-deps
-
-    // fix heather issues
-    const fixHeaderStyle = () => {
+    const navigate = useNavigate();
+    const rootChildren: any = (document.getElementById('root') as HTMLElement).children
+    const [t, i18] = useTranslation('global');
+    const cves = require("../../assets/cvs/cves.pdf");
+    const cven = require("../../assets/cvs/cven.pdf");
+    const fixHeader = useCallback(() => { 
         rootChildren[2].style = "display: none"
         rootChildren[3].style = "min-height: calc(100vh - 45px)"
         rootChildren[3].children[0].style = "top: 0"
         rootChildren[3].children[1].style = "top: 0"
-    }
+    }, [rootChildren]); //fix header style issues
 
-    // return to normal header settings
-    const defaultHeaderStyle = () => {
-        rootChildren[2].style.removeProperty("display")
-        rootChildren[3].style.removeProperty("min-height")
-        rootChildren[3].children[0].style.removeProperty('top')
-        rootChildren[3].children[1].style.removeProperty('top')
-    }
+    useEffect(() => {
+        if (location.state === "ctcmenu" || // Was changed from menu
+            (location.pathname === "/contact" && // on refresh ->
+                !animationOff)) { // Wait until the animation is off
+
+            fixHeader();
+            // Was not changed from scroll
+            if (location.state !== "fromScroll") ref.current?.scrollIntoView();
+        }
+    }, [location, animationOff, fixHeader])
+
+    useEffect(() => {
+        //clean location.state before closing / refreshing
+        const handleLeave = () => navigate(".");
+        window.addEventListener("beforeunload", handleLeave);
+        return () => window.removeEventListener("beforeunload", handleLeave);
+    }, [navigate])
 
     const handleEmailClick = () => {
         setCopied(true);
@@ -61,9 +64,9 @@ const Contact: FC = () => {
 
                         <IconNtext>
                             <Link
-                                to={require("../../assets/cvs/cves.pdf")}
+                                to={i18.language === "es" ? cves : cven}
                                 target="_blank"
-                                download="Herberth Bustamante WebDeveloper"
+                                download={"Herberth Bustamante " + (i18.language === "es" ? "Desarrollador Web" : "WebDeveloper")}
                             >
                                 <Cv />
                                 {t("contact.view")}

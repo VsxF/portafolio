@@ -13,7 +13,10 @@ const ArrowSVG = styled.svg<{ $transform: string, $fill: string }>`
 
 export const Arrow: FC<{ dir: string, rotate?: boolean, $fill?: string }> = ({ dir, rotate, $fill }) => {
     const location = useLocation().pathname;
-    const auxFill = $fill ? $fill : location === "/" ? "white" : "";
+    const auxFill = $fill ? $fill : 
+                        (location === "/" || location === "/en") ? 
+                            "white" : "";
+
     //reutrn: rotate(dir) scaleY(rotate)
     const transform = (): string => {
         let auxRotate = " scaleY(" + (rotate ? "-1" : "1") + ")"
