@@ -33,13 +33,22 @@ export const ArrowContainer = styled.div<{ left?: boolean }>`
 
     display: flex;
     align-items: center;
-
+    -webkit-tap-highlight-color: transparent;
     cursor: pointer;
 
-    &:hover,
-    &:focus {
+    &:hover {
         background: linear-gradient(${props => props.left ? "to right" : "to left"}, 
         rgb(128 128 128 / 50%), transparent);
+    }
+
+    @media only screen and (max-width: 768px) {
+        &:hover {
+            background: transparent;
+        }
+        &:active {
+            background: linear-gradient(${props => props.left ? "to right" : "to left"}, 
+            rgb(128 128 128 / 50%), transparent);
+        }
     }
 `
 

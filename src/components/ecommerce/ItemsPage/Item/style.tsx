@@ -110,6 +110,7 @@ export const Picture = styled.img<{ show?: boolean }>`
         transform: translateX(0%);
         filter: blur(0px);
     `:`
+        opacity: 0;
         transform: translateX(10px);
         filter: blur(2px);
         z-index: -99;

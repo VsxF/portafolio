@@ -13,7 +13,7 @@ export const Cross: FC<{ clicked?: boolean, less?: boolean }> = ({ less }) => {
                 setClicked(false)
             }, 1000);
         }
-        return () => { clearTimeout(timer) }
+        return () => clearTimeout(timer)
     }, [clicked])
 
     return (

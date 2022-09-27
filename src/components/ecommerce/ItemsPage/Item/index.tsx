@@ -17,17 +17,11 @@ const Item: FC<{ item: IItem }> = ({ item }) => {
     const [isHover, setHover] = useState(false);
     const isPhone = IsPhone(() => setShowCart(true))
     const dispatch = useDispatch();
-
     const examplePicture = "https://images.unsplash.com/photo-1634320714682-ae8b9c9cee60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
 
-    const mouseEnter = () => {
-        setShowCart(true);
-        setHover(true)
-    }
-
-    const mouseLeave = () => {
-        setShowCart(false);
-        setHover(false)
+    const handleHover = (value: boolean) => {
+        setShowCart(value);
+        setHover(value);
     }
 
     const handleCartClick = () => {
@@ -38,14 +32,16 @@ const Item: FC<{ item: IItem }> = ({ item }) => {
             ...item,
             qnt: auxQnt
         }))
+
+        if (isPhone) handleHover(false);
     }
 
     return (
         <Box
-            onMouseEnter={() => mouseEnter()}
-            onMouseLeave={() => mouseLeave()}
-            onTouchMove={() => mouseEnter()}
-            onTouchEnd={() => mouseLeave()}
+            onMouseEnter={() => handleHover(true)}
+            onMouseLeave={() => handleHover(false)}
+            onTouchMove={() => handleHover(true)}
+            onTouchEnd={() => handleHover(false)}
         >
 
             {(showCart || isPhone) && item.price?.value &&

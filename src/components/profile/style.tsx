@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 export const ProfileContainer = styled.div`
     box-sizing: border-box;    
     padding: 5%;
+    padding-bottom: 0;
     padding-top: 0px;
     scroll-margin-top: 95px;
 `
@@ -59,11 +60,14 @@ export const TabsContainer = styled.div`
     ${afterTabsLine}
 
     @media only screen and (max-width: 768px) {
-        justify-content: flex-start;
         flex-wrap: nowrap;
         margin-left: 10px;
         margin-right: 10px;
         ::after { display: none; }
+    }
+
+    @media only screen and (max-width: 480px) {
+        justify-content: flex-start;
     }
 `
 

@@ -10,7 +10,7 @@ const Posts:FC = () => {
     return (
         <>
             <Column width="40%" sticky noneInPhone>
-                <PostsContainer>
+                <PostsContainer >
                     <PostsTitle>  {t('postPage.tabs.information')} </PostsTitle>
                     <InfoRow>
                         <b>{t('postPage.information.birthday', { returnObjects: true })[0]}:</b>

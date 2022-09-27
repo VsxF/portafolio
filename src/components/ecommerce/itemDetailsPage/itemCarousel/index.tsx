@@ -49,10 +49,10 @@ const ItemCarousel: FC<{ picture: string, alt: string }> = ({ picture, alt }) =>
                 />
             )}
 
-            <ArrowContainer left onClick={() => next()} >
+            <ArrowContainer left onClick={next} >
                 <Arrow dir="left" />
             </ArrowContainer>
-            <ArrowContainer onClick={() => prev()}>
+            <ArrowContainer onClick={prev}>
                 <Arrow dir="right" />
             </ArrowContainer>
 

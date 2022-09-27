@@ -14,13 +14,13 @@ const LandingPage: FC = () => {
     const [t] = useTranslation('global');
     const refScrollDiv = useRef<HTMLDivElement>(null);
     const rootChildren: any = (document.getElementById('root') as HTMLElement).children
-    const defualtHeader = useCallback(() => { 
+    const defualtHeader = useCallback(() => {
         rootChildren[2].style.removeProperty("display")
         rootChildren[3].style.removeProperty("min-height")
         rootChildren[3].children[0].style.removeProperty('top')
         rootChildren[3].children[1].style.removeProperty('top')
     }, [rootChildren]); // default header style
-    
+
     // unmount -> clean header changes
     useEffect(() => { return defualtHeader }, [rootChildren, defualtHeader])
 
@@ -78,7 +78,7 @@ const LandingPage: FC = () => {
                         <Space width="100%" height="calc(80vh - 50px)" />
                     </LandingText>
 
-                    <Contact animationOff={animation} fixHeader={() => {}} />
+                    <Contact animationOff={animation} fixHeader={() => { }} />
                 </AuxLandingScroll>
             </LandingContainer>
         </LandingBackground>

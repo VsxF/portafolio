@@ -6,7 +6,7 @@ import { LandingContainer } from "../style";
 
 const LandingBackground: FC<{ children?: ReactNode, noWait?: boolean, loadPic?: string }> = ({ children, noWait, loadPic }) => {
     const [hypotenuse, setHypotenuse] = useState([0, 0, 0])
-    const [sourceLoaded, setSourceLoaded] = useState([false, false, false]);    
+    const [sourceLoaded, setSourceLoaded] = useState([false, false, false]);
 
     //return hypotenuse, x, y
     //set with: and height: hypotenuse
@@ -26,17 +26,22 @@ const LandingBackground: FC<{ children?: ReactNode, noWait?: boolean, loadPic?: 
         return () => window.removeEventListener('resize', () => setHypotenuse(getHypotenuse()))
     }, [])
 
-    useEffect(() => { // return [true, true, true] when the 3 pictures load
-        const img = new Image();
-        const img2 = new Image();
-        const img3 = new Image();
-        img.src = Vac;
-        img2.src = VacNoSky;
-        img3.src = loadPic || "";
-        img.onload = () => setSourceLoaded( sl => [true, sl[1], sl[2]]);
-        img2.onload = () => setSourceLoaded( sl => [sl[0], true, sl[2]]);
-        img3.onload = () => setSourceLoaded( sl => [sl[0], sl[1], true]);
-    }) 
+    useEffect(() => { // set sourceLoaded [true, true, true] when the 3 pictures load
+        if (!sourceLoaded[0] || !sourceLoaded[1] || !sourceLoaded[2]) {
+            const img = new Image();
+            const img2 = new Image();
+            const img3 = new Image();
+            img.src = Vac;
+            img2.src = VacNoSky;
+            img3.src = loadPic || "";
+            img.onload = () => setSourceLoaded(sl => [true, sl[1], sl[2]]);
+            img2.onload = () => setSourceLoaded(sl => [sl[0], true, sl[2]]);
+            if (loadPic !== undefined)
+                img3.onload = () => setSourceLoaded(sl => [sl[0], sl[1], true]);
+            else
+                setSourceLoaded(sl => [sl[0], sl[1], true]);
+        }
+    }, [sourceLoaded, loadPic])
 
     return (
         <>
@@ -66,7 +71,7 @@ const LandingBackground: FC<{ children?: ReactNode, noWait?: boolean, loadPic?: 
                                                         0 0 0 9 -4
                                                         0 0 0 9 -4
                                                         0 0 0 0 0.2"
-                               />
+                                />
                             </filter>
                         </svg>
 

@@ -14,7 +14,7 @@ export const Column = styled.div<{ width?: string, sticky?: boolean, noneInPhone
     }
 
     ${ props => props.sticky && `
-        height: 500px;
+        height: 100%;
         position: sticky;
         top: 30px;
     `}
