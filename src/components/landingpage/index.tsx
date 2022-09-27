@@ -1,6 +1,6 @@
 import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { LandingText, PictureContainer, Spider, LandingContainer, SpiderLight, AuxLandingScroll, ScrollDown, ScrollDownContainer } from "./style";
-import Me from "../general/icons/landingAssets/me.jpg"
+import Me from "../general/icons/landingAssets/me.webp"
 import { useTranslation } from "react-i18next";
 import LandingBackground from "./landingBackground";
 import Contact from "../contact";

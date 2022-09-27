@@ -1,7 +1,7 @@
 import { FC, ReactNode, useEffect, useState } from "react";
 import { Background, BackgroundContainer, Loading } from "./style";
-import Vac from "../../general/icons/landingAssets/vac.jpg"
-import VacNoSky from '../../general/icons/landingAssets/vacNotSky1.png'
+import Vac from "../../general/icons/landingAssets/vac.webp"
+import VacNoSky from '../../general/icons/landingAssets/vacNotSky1.webp'
 import { LandingContainer } from "../style";
 
 const LandingBackground: FC<{ children?: ReactNode, noWait?: boolean, loadPic?: string }> = ({ children, noWait, loadPic }) => {
