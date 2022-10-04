@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { CSharp, Css, Cv, Golang, Html, Java, JavaScript, Mail, NodeJS, Php, Reactjs, Space, Sql, TypeScript, VB } from "../general/icons/icons";
+import { CSharp, Css, Cv, Github, Golang, Html, Java, JavaScript, Mail, NodeJS, Php, Reactjs, Space, Sql, TypeScript, VB } from "../general/icons/icons";
 import { ContactContainer, IconNtext, Column, ColumnList, SayContainer, Copied } from "./style";
 
 const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animationOff }) => {
@@ -20,11 +20,12 @@ const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animation
         rootChildren[3].children[1].style = "top: 0"
     }, [rootChildren]); //fix header style issues
 
+
     useEffect(() => {
         if (location.state === "ctcmenu" || // Was changed from menu
             (location.pathname === "/contact" && // on refresh ->
                 !animationOff)) { // Wait until the animation is off
-
+                    console.log(location.state)
             fixHeader();
             // Was not changed from scroll
             if (location.state !== "fromScroll") ref.current?.scrollIntoView();
@@ -33,9 +34,8 @@ const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animation
 
     useEffect(() => {
         //clean location.state before closing / refreshing
-        const handleLeave = () => navigate(".");
-        window.addEventListener("beforeunload", handleLeave);
-        return () => window.removeEventListener("beforeunload", handleLeave);
+        window.addEventListener("beforeunload", () => navigate("."));
+        return () => window.removeEventListener("beforeunload", () => navigate("."));
     }, [navigate])
 
     const handleEmailClick = () => {
@@ -71,6 +71,16 @@ const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animation
                                 <Cv />
                                 {t("contact.view")}
                             </Link>
+                        </IconNtext>
+
+                        <IconNtext>
+                            <a
+                                href="https://github.com/sublimexf"
+                                target="_blank"
+                            >
+                                <Github />
+                                Github
+                            </a>
                         </IconNtext>
                     </div>
                 </SayContainer>
