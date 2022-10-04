@@ -76,6 +76,7 @@ const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animation
                         <IconNtext>
                             <a
                                 href="https://github.com/sublimexf"
+                                rel="noopener noreferrer"
                                 target="_blank"
                             >
                                 <Github />
