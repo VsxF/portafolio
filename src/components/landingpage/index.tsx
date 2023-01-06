@@ -1,6 +1,5 @@
 import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { LandingText, PictureContainer, Spider, LandingContainer, SpiderLight, AuxLandingScroll, ScrollDown, ScrollDownContainer } from "./style";
-import Me from "../general/icons/landingAssets/me.webp"
 import { useTranslation } from "react-i18next";
 import LandingBackground from "./landingBackground";
 import Contact from "../contact";
@@ -8,7 +7,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Space } from "../general/icons/icons";
 
 const LandingPage: FC = () => {
-    const [animation, setAnimation] = useState(true);
+    const myPicture = "https://firebasestorage.googleapis.com/v0/b/sublimexf-portafolio.appspot.com/o/yo.webp?alt=media&token=8481820f-90e9-4e80-9a4c-f5e2cafc3602"
+    const [animation, setAnimation] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
     const [t] = useTranslation('global');
@@ -53,7 +53,7 @@ const LandingPage: FC = () => {
     }
 
     return (
-        <LandingBackground loadPic={Me}>
+        <LandingBackground loadPic={myPicture}>
             <LandingContainer >
                 <AuxLandingScroll
                     onScroll={handleScroll}
@@ -67,7 +67,7 @@ const LandingPage: FC = () => {
                         {t('landing.greeting')}
                         <br />
                         Herberth
-                        <PictureContainer picture={Me} />
+                        <PictureContainer picture={myPicture} />
 
                         {location.pathname !== "/contact" &&
                             <ScrollDownContainer>

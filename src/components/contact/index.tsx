@@ -1,6 +1,6 @@
 import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { CSharp, Css, Cv, Github, Golang, Html, Java, JavaScript, Mail, NodeJS, Php, Reactjs, Space, Sql, TypeScript, VB } from "../general/icons/icons";
 import { ContactContainer, IconNtext, Column, ColumnList, SayContainer, Copied } from "./style";
 
@@ -11,9 +11,9 @@ const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animation
     const navigate = useNavigate();
     const rootChildren: any = (document.getElementById('root') as HTMLElement).children
     const [t, i18] = useTranslation('global');
-    const cves = require("../../assets/cvs/cves.pdf");
-    const cven = require("../../assets/cvs/cven.pdf");
-    const fixHeader = useCallback(() => { 
+    const cves = "https://firebasestorage.googleapis.com/v0/b/sublimexf-portafolio.appspot.com/o/_cves.pdf?alt=media&token=e1dce267-da6b-4bb8-a768-74b326d85771";
+    const cven = "https://firebasestorage.googleapis.com/v0/b/sublimexf-portafolio.appspot.com/o/_cven.pdf?alt=media&token=fc209f68-9c0d-4442-8a3c-ced506b90cd0";
+    const fixHeader = useCallback(() => {
         rootChildren[2].style = "display: none"
         rootChildren[3].style = "min-height: calc(100vh - 45px)"
         rootChildren[3].children[0].style = "top: 0"
@@ -25,7 +25,7 @@ const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animation
         if (location.state === "ctcmenu" || // Was changed from menu
             (location.pathname === "/contact" && // on refresh ->
                 !animationOff)) { // Wait until the animation is off
-                    console.log(location.state)
+            console.log(location.state)
             fixHeader();
             // Was not changed from scroll
             if (location.state !== "fromScroll") ref.current?.scrollIntoView();
@@ -63,14 +63,16 @@ const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animation
                         </IconNtext>
 
                         <IconNtext>
-                            <Link
-                                to={i18.language === "es" ? cves : cven}
+                            <a
+                                href={i18.language === "es" ? cves : cven}
                                 target="_blank"
+                                rel="noreferrer" 
                                 download={"Herberth Bustamante " + (i18.language === "es" ? "Desarrollador Web" : "WebDeveloper")}
                             >
+
                                 <Cv />
                                 {t("contact.view")}
-                            </Link>
+                            </a>
                         </IconNtext>
 
                         <IconNtext>
