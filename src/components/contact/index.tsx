@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import { CSharp, Css, Cv, Github, Golang, Html, Java, JavaScript, Mail, MongoDB, MySQL, NodeJS, Python, Reactjs, Space, TypeScript, VB } from "../general/icons/icons";
+import { CSharp, Css, Cv, Github, Golang, Html, JavaScript, Mail, MongoDB, MySQL, NodeJS, Python, Reactjs, Space, TypeScript, VB } from "../general/icons/icons";
 import { ContactContainer, IconNtext, Column, ColumnList, SayContainer, Copied } from "./style";
 
 const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animationOff }) => {
