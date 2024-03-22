@@ -16,7 +16,8 @@ const Header:FC = () => {
     const location = useLocation();
 
     useEffect(() => { // default lang is spanish if link has "/en", change to english
-        if (location.pathname === "/en") toggleLanguage("en") 
+        const language = location.pathname === "/en" ? "en" : "es"
+        toggleLanguage(language)
     }, [])  // eslint-disable-line react-hooks/exhaustive-deps
 
     const toggleLanguage = (language: string) => {

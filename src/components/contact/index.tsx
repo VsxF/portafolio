@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import { CSharp, Css, Cv, Github, Golang, Html, Java, JavaScript, Mail, NodeJS, Php, Reactjs, Space, Sql, TypeScript, VB } from "../general/icons/icons";
+import { CSharp, Css, Cv, Github, Golang, Html, Java, JavaScript, Mail, MongoDB, MySQL, NodeJS, Python, Reactjs, Space, TypeScript, VB } from "../general/icons/icons";
 import { ContactContainer, IconNtext, Column, ColumnList, SayContainer, Copied } from "./style";
 
 const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animationOff }) => {
@@ -11,8 +11,8 @@ const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animation
     const navigate = useNavigate();
     const rootChildren: any = (document.getElementById('root') as HTMLElement).children
     const [t, i18] = useTranslation('global');
-    const cves = "https://firebasestorage.googleapis.com/v0/b/sublimexf-portafolio.appspot.com/o/_cves.pdf?alt=media&token=e1dce267-da6b-4bb8-a768-74b326d85771";
-    const cven = "https://firebasestorage.googleapis.com/v0/b/sublimexf-portafolio.appspot.com/o/_cven.pdf?alt=media&token=fc209f68-9c0d-4442-8a3c-ced506b90cd0";
+    const cves = "https://drive.google.com/drive/folders/1xbcPu8whdJBJ7Kkyloq_YbncK8C8X41W?usp=sharing";
+    const cven = "https://drive.google.com/drive/folders/1AOLNbLq1dTrSWNHUr2awJ1DKiasH2mPW?usp=sharing";
     const fixHeader = useCallback(() => {
         rootChildren[2].style = "display: none"
         rootChildren[3].style = "min-height: calc(100vh - 45px)"
@@ -20,12 +20,10 @@ const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animation
         rootChildren[3].children[1].style = "top: 0"
     }, [rootChildren]); //fix header style issues
 
-
     useEffect(() => {
         if (location.state === "ctcmenu" || // Was changed from menu
             (location.pathname === "/contact" && // on refresh ->
                 !animationOff)) { // Wait until the animation is off
-            console.log(location.state)
             fixHeader();
             // Was not changed from scroll
             if (location.state !== "fromScroll") ref.current?.scrollIntoView();
@@ -66,7 +64,7 @@ const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animation
                             <a
                                 href={i18.language === "es" ? cves : cven}
                                 target="_blank"
-                                rel="noreferrer" 
+                                rel="noreferrer"
                                 download={"Herberth Bustamante " + (i18.language === "es" ? "Desarrollador Web" : "WebDeveloper")}
                             >
 
@@ -77,7 +75,7 @@ const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animation
 
                         <IconNtext>
                             <a
-                                href="https://github.com/sublimexf"
+                                href="https://github.com/sublimexf/portafolio"
                                 rel="noopener noreferrer"
                                 target="_blank"
                             >
@@ -138,14 +136,14 @@ const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animation
                 <ul>
                     <li>
                         <IconNtext>
-                            <CSharp />
-                            C# - C sharp
+                            <Python />
+                            Python
                         </IconNtext>
                     </li>
                     <li>
                         <IconNtext>
-                            <Java />
-                            Java
+                            <CSharp />
+                            C# - C sharp
                         </IconNtext>
                     </li>
                     <li>
@@ -162,14 +160,14 @@ const Contact: FC<{ animationOff: boolean, fixHeader: Function }> = ({ animation
                     </li>
                     <li>
                         <IconNtext>
-                            <Sql />
-                            SQL
+                            <MongoDB />
+                            MongoDB
                         </IconNtext>
                     </li>
                     <li>
                         <IconNtext>
-                            <Php />
-                            PHP
+                            <MySQL />
+                            MySQL
                         </IconNtext>
                     </li>
                 </ul>

@@ -5,10 +5,12 @@ import LandingBackground from "./landingBackground";
 import Contact from "../contact";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Space } from "../general/icons/icons";
+import myPicture from "../../assets/yo.webp"
 
 const LandingPage: FC = () => {
-    const myPicture = "https://firebasestorage.googleapis.com/v0/b/sublimexf-portafolio.appspot.com/o/yo.webp?alt=media&token=8481820f-90e9-4e80-9a4c-f5e2cafc3602"
-    const [animation, setAnimation] = useState(false);
+    // it takes too mucho to take the picture from firebase
+    // const myPicture = "https://firebasestorage.googleapis.com/v0/b/sublimexf-portafolio.appspot.com/o/yo.webp?alt=media&token=8481820f-90e9-4e80-9a4c-f5e2cafc3602"
+    const [animation, setAnimation] = useState(true);
     const navigate = useNavigate();
     const location = useLocation();
     const [t] = useTranslation('global');
